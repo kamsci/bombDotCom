@@ -1,0 +1,16 @@
+package test
+
+import org.junit.BeforeClass
+
+class BombDotComTest extends GroovyTestCase {
+
+    @BeforeClass
+    void setUp() {
+
+    }
+
+    void testGameSetup() {
+        boolean test = true
+        assertTrue(test)
+    }
+}

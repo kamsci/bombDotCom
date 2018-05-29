@@ -1,0 +1,40 @@
+package test
+
+import org.junit.BeforeClass
+
+class DotComTest extends GroovyTestCase {
+
+    @BeforeClass
+    void setUp() {
+
+    }
+
+    void testDotComSetupDefault() {
+        // DotCom object should create dotComLength of 3 for gridRowLength of 7 by default
+        DotCom pets = new BombDotComGame("chewy.com")
+
+        junit.framework.TestCase.assertEquals(3, pets.getLocations().size())
+        junit.framework.TestCase.assertEquals(3, pets.getDotComLength())
+        junit.framework.TestCase.assertEquals(7, pets.getGridRowLength())
+
+        List<Integer> locations = pets.getLocations()
+        assertTrue(locations.get(0) <= 4 && locations.get(0) >= 0)
+        assertTrue(locations.get(1) <= 5 && locations.get(1) >= 0)
+        assertTrue(locations.get(2) <= 6 && locations.get(2) >= 0)
+    }
+
+    void testDotComSetupManual() {
+        DotCom pets = new BombDotComGame("chewy.com", 5, 10)
+
+        junit.framework.TestCase.assertEquals(5, pets.getLocations().size())
+        junit.framework.TestCase.assertEquals(5, pets.getDotComLength())
+        junit.framework.TestCase.assertEquals(10, pets.getGridRowLength())
+
+        List<Integer> locations = pets.getLocations()
+        assertTrue(locations.get(0) <= 5 && locations.get(0) >= 0)
+        assertTrue(locations.get(1) <= 6 && locations.get(1) >= 0)
+        assertTrue(locations.get(2) <= 7 && locations.get(2) >= 0)
+        assertTrue(locations.get(3) <= 8 && locations.get(3) >= 0)
+        assertTrue(locations.get(4) <= 9 && locations.get(4) >= 0)
+    }
+}
